@@ -33,9 +33,9 @@ class SplashScreen : AppCompatActivity() {
             .setDuration(100)
             .start()
 
-        // Pindah ke MainActivity setelah 2 detik
+        // Pindah ke OnboardingActivity setelah 2 detik
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, OnboardingActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)
