@@ -1,9 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ProjectAkhir" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!-- BASE THEME -->
+    <style name="Theme.ProjectAkhir" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- WARNA UTAMA -->
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorSecondary">@color/green_primary</item>
+        <item name="colorTertiary">@color/green_primary</item>
+
+        <!-- STATUS BAR -->
+        <item name="android:statusBarColor">@color/green_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+
     </style>
 
-    <style name="Theme.ProjectAkhir" parent="Base.Theme.ProjectAkhir" />
 </resources>

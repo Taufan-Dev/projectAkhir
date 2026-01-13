@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- WARNA UTAMA APP -->
+    <color name="green_primary">#1BBA85</color>
+    <color name="green_dark">#159A6F</color>
 </resources>

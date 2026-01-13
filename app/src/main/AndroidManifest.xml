@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAkhir">
 
-        <!-- SPLASH SCREEN -->
+        <!-- SPLASH SCREEN (FIRST) -->
         <activity
             android:name=".SplashScreen"
             android:exported="true">
@@ -25,6 +25,11 @@
         <!-- ONBOARDING -->
         <activity
             android:name=".OnboardingActivity"
+            android:exported="false" />
+
+        <!-- LOGIN -->
+        <activity
+            android:name=".LoginActivity"
             android:exported="false" />
 
         <!-- MAIN -->
