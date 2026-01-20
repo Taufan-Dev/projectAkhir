@@ -3,7 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- WARNA UTAMA APP -->
     <color name="green_primary">#1BBA85</color>
     <color name="green_dark">#159A6F</color>
+
+    <color name="gray_input_bg">#F3F4F6</color>
+    <color name="gray_text_hint">#9CA3AF</color>
+    <color name="gray_text_body">#4B5563</color>
 </resources>

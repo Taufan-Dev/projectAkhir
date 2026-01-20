@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAkhir">
 
-        <!-- SPLASH SCREEN (FIRST) -->
         <activity
             android:name=".SplashScreen"
             android:exported="true">
@@ -22,21 +21,21 @@
             </intent-filter>
         </activity>
 
-        <!-- ONBOARDING -->
         <activity
             android:name=".OnboardingActivity"
             android:exported="false" />
 
-        <!-- LOGIN -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
 
-        <!-- MAIN -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
     </application>
-
 </manifest>
