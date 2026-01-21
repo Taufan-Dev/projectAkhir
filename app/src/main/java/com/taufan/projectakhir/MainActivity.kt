@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.taufan.projectakhir.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 2. Logika Klik Logout (Header)
+        // 2. Set Halaman Pertama yang muncul (HomeFragment)
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
+        }
+
+        // 3. Logika Klik Logout (Tetap di Header MainActivity)
         binding.tvLogOut.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -24,25 +30,15 @@ class MainActivity : AppCompatActivity() {
             finishAffinity()
         }
 
-        // 3. Logika Klik "Lihat semua"
-        // Mengarahkan ke tab Explore di navigasi bawah
-        binding.tvLihatSemua.setOnClickListener {
-            binding.bottomNavigation.selectedItemId = R.id.navigation_explore
-            Toast.makeText(this, "Membuka Explore Wisata", Toast.LENGTH_SHORT).show()
-        }
-
-        // 4. Set Item Navigasi yang Terpilih Pertama Kali
-        binding.bottomNavigation.selectedItemId = R.id.navigation_home
-
-        // 5. Handling Klik Navigasi Bawah
+        // 4. Handling Klik Navigasi Bawah
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    Toast.makeText(this, "Beranda Wisata", Toast.LENGTH_SHORT).show()
+                    loadFragment(HomeFragment())
                     true
                 }
                 R.id.navigation_explore -> {
-                    Toast.makeText(this, "Cari Tempat Menarik", Toast.LENGTH_SHORT).show()
+                    loadFragment(ExploreFragment()) // Membuka tampilan yang ada tab kota
                     true
                 }
                 R.id.navigation_favorite -> {
@@ -56,5 +52,22 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    /**
+     * Fungsi untuk menukar Fragment di dalam FrameLayout (fragment_container)
+     */
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
+    /**
+     * Fungsi yang dipanggil dari HomeFragment saat klik "Lihat Semua"
+     */
+    fun moveToExplore() {
+        // Ini akan memicu listener setOnItemSelectedListener di atas
+        binding.bottomNavigation.selectedItemId = R.id.navigation_explore
     }
 }
