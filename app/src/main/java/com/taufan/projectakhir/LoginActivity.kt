@@ -12,24 +12,30 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Inisialisasi View Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Tombol Login (ID XML: btn_login -> Kotlin: btnLogin)
+        // 1. Logika Tombol Login
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString() // ID XML: et_email
-            val password = binding.etPassword.text.toString() // ID XML: et_password
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
 
+            // Validasi sederhana
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Email dan Password wajib diisi", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Login diklik (dummy)", Toast.LENGTH_SHORT).show()
-                // Contoh jika ingin langsung ke MainActivity:
-                // startActivity(Intent(this, MainActivity::class.java))
+                // Berhasil Login -> Pindah ke MainActivity (Dashboard)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
+                // PENTING: finish() digunakan agar user tidak bisa kembali ke halaman login
+                // saat menekan tombol back setelah masuk ke dashboard.
+                finish()
             }
         }
 
-        // 2. Pindah ke Sign Up (ID XML: tv_signup -> Kotlin: tvSignup)
+        // 2. Logika Pindah ke Halaman Sign Up (Jika diklik)
         binding.tvSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
