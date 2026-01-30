@@ -15,14 +15,56 @@ class ExploreFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var exploreAdapter: ExploreAdapter
 
-    // Data Dummy sesuai gambar referensi
+    // Data Lengkap sesuai model Wisata yang sudah Parcelable
     private val listSemuaWisata = listOf(
-        Wisata("Gunung Papandayan", "Garut", R.drawable.hero, "Garut"),
-        Wisata("Kawah Putih", "Bandung", R.drawable.hero, "Bandung"),
-        Wisata("Curug Putri", "Kuningan", R.drawable.profile, "Kuningan"),
-        Wisata("Situ Patenggang", "Bandung", R.drawable.hero, "Bandung"),
-        Wisata("Kebun Raya", "Bogor", R.drawable.hero, "Bogor"),
-        Wisata("Cirebon Waterland", "Cirebon", R.drawable.hero, "Cirebon")
+        Wisata(
+            "Gunung Papandayan",
+            "Garut",
+            R.drawable.hero,
+            "Garut",
+            "Rp 35.000",
+            "Gunung api yang menawarkan pemandangan kawah dan padang edelweiss yang sangat indah."
+        ),
+        Wisata(
+            "Kawah Putih",
+            "Bandung",
+            R.drawable.hero,
+            "Bandung",
+            "Rp 28.000",
+            "Danau kawah yang airnya berwarna putih kehijauan dengan suasana kabut yang estetik."
+        ),
+        Wisata(
+            "Curug Putri",
+            "Kuningan",
+            R.drawable.profile,
+            "Kuningan",
+            "Rp 20.000",
+            "Terletak di kaki Gunung Ciremai, Curug Putri menawarkan pesona air terjun yang memukau dan udara segar."
+        ),
+        Wisata(
+            "Situ Patenggang",
+            "Bandung",
+            R.drawable.hero,
+            "Bandung",
+            "Rp 25.000",
+            "Danau yang dikelilingi hamparan kebun teh hijau yang sangat menyejukkan mata."
+        ),
+        Wisata(
+            "Kebun Raya",
+            "Bogor",
+            R.drawable.hero,
+            "Bogor",
+            "Rp 15.000",
+            "Hutan kota terbesar yang menjadi paru-paru kota Bogor dengan ribuan koleksi pohon."
+        ),
+        Wisata(
+            "Cirebon Waterland",
+            "Cirebon",
+            R.drawable.hero,
+            "Cirebon",
+            "Rp 50.000",
+            "Wisata air modern di pinggir pantai yang cocok untuk liburan keluarga."
+        )
     )
 
     override fun onCreateView(
@@ -41,23 +83,27 @@ class ExploreFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        // Menggunakan GridLayout 2 kolom agar persis seperti gambar
+        // Inisialisasi adapter (Logika klik sudah ditangani di dalam ExploreAdapter)
         exploreAdapter = ExploreAdapter(listSemuaWisata)
+
         binding.rvExplore.apply {
+            // Menggunakan 2 kolom agar persis seperti gambar referensi
             layoutManager = GridLayoutManager(context, 2)
             adapter = exploreAdapter
+            setHasFixedSize(true)
         }
     }
 
     private fun setupTabLayout() {
         val cities = listOf("All", "Bandung", "Kuningan", "Garut", "Bogor", "Cirebon")
 
-        // Menambahkan tab kota secara dinamis
-        cities.forEach { cityName ->
-            binding.tabCity.addTab(binding.tabCity.newTab().setText(cityName))
+        // Menghindari duplikasi tab jika fragment di-recreate
+        if (binding.tabCity.tabCount == 0) {
+            cities.forEach { cityName ->
+                binding.tabCity.addTab(binding.tabCity.newTab().setText(cityName))
+            }
         }
 
-        // Listener untuk memfilter data saat tab diklik
         binding.tabCity.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val selectedCity = tab?.text.toString()
@@ -70,7 +116,6 @@ class ExploreFragment : Fragment() {
     }
 
     private fun filterWisata(kota: String) {
-        // Logika filter data: Jika "All" tampilkan semua, jika tidak filter sesuai kota
         val hasilFilter = if (kota == "All") {
             listSemuaWisata
         } else {

@@ -1,5 +1,6 @@
 package com.taufan.projectakhir
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +9,6 @@ import com.taufan.projectakhir.databinding.ItemExploreBinding
 class ExploreAdapter(private var listWisata: List<Wisata>) :
     RecyclerView.Adapter<ExploreAdapter.WisataViewHolder>() {
 
-    // Menghubungkan ke layout item_explore.xml menggunakan Binding
     inner class WisataViewHolder(val binding: ItemExploreBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -22,21 +22,27 @@ class ExploreAdapter(private var listWisata: List<Wisata>) :
     override fun onBindViewHolder(holder: WisataViewHolder, position: Int) {
         val data = listWisata[position]
 
-        // Memasukkan data ke dalam View
         holder.binding.apply {
+            // 1. Memasukkan data ke View
             tvNamaWisata.text = data.nama
             tvLokasi.text = "📍 ${data.lokasi}"
             ivWisata.setImageResource(data.gambar)
-            // Jika kamu ada TextView rating di item_explore.xml:
-            // tvRating.text = data.rating
+
+            // 2. Logika klik kartu untuk pindah ke Detail
+            root.setOnClickListener {
+                val intent = Intent(root.context, DetailActivity::class.java)
+                // Mengirim data wisata yang diklik
+                intent.putExtra("EXTRA_WISATA", data)
+                root.context.startActivity(intent)
+            }
         }
     }
 
     override fun getItemCount(): Int = listWisata.size
 
-    // Fungsi penting untuk update data saat klik tab kota
+    // Fungsi untuk update data saat tab filter diklik
     fun updateData(newList: List<Wisata>) {
         listWisata = newList
-        notifyDataSetChanged() // Memberitahu RecyclerView bahwa data berubah
+        notifyDataSetChanged()
     }
 }
