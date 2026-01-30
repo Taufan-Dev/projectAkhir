@@ -2,7 +2,6 @@ package com.taufan.projectakhir
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.taufan.projectakhir.databinding.ActivityMainBinding
@@ -16,13 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Set Halaman Pertama (HomeFragment)
+        // 1. Set Halaman Pertama (HomeFragment) saat aplikasi dibuka
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
 
-        // 2. Logika Logout
-        binding.tvLogOut.setOnClickListener {
+        // 2. Logika Logout (Jika ada TextView/Button logout di Main)
+        // Jika tvLogOut tidak ada di layout activity_main, bagian ini bisa dihapus/pindah ke Profile
+        binding.tvLogOut?.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finishAffinity()
@@ -40,13 +40,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_favorite -> {
-                    // SEKARANG MEMANGGIL FRAGMENT FAVORIT
                     loadFragment(FavoriteFragment())
                     true
                 }
                 R.id.navigation_profile -> {
-                    // Jika belum ada fragment profile, biarkan Toast dulu
-                    Toast.makeText(this, "Profil Pengguna", Toast.LENGTH_SHORT).show()
+                    // SEKARANG MEMANGGIL PROFILEFRAGMENT
+                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> false
@@ -60,18 +59,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Fungsi inti untuk menukar Fragment di fragment_container
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
 
-    // Fungsi navigasi ke Explore
+    // Fungsi navigasi ke Explore (bisa dipanggil dari fragment lain)
     fun moveToExplore() {
         binding.bottomNavigation.selectedItemId = R.id.navigation_explore
     }
 
-    // Fungsi navigasi ke Favorite
+    // Fungsi navigasi ke Favorite (bisa dipanggil dari fragment lain)
     fun moveToFavorite() {
         binding.bottomNavigation.selectedItemId = R.id.navigation_favorite
     }

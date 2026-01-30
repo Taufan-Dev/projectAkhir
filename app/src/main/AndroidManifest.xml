@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAkhir">
         <activity
+            android:name=".ProfileFragment"
+            android:exported="false" />
+        <activity
+            android:name=".KonfirmasiPembayaranActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
