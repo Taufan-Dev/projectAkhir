@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
         Wisata(
             "Gunung Papandayan",
             "Garut",
-            R.drawable.hero,
+            R.drawable.papandayan,
             "Garut",
             "Rp 35.000",
             "Gunung api yang menawarkan pemandangan kawah dan padang edelweiss."
@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
         Wisata(
             "Curug Putri",
             "Kuningan",
-            R.drawable.profile,
+            R.drawable.curugputri,
             "Kuningan",
             "Rp 20.000",
             "Terletak di kaki Gunung Ciremai, menawarkan pesona air terjun memukau."
@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
         Wisata(
             "Kawah Putih",
             "Bandung",
-            R.drawable.hero,
+            R.drawable.kawahputih,
             "Bandung",
             "Rp 28.000",
             "Danau kawah yang airnya berwarna putih kehijauan yang sangat estetik."
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         Wisata(
             "Situ Patenggang",
             "Bandung",
-            R.drawable.hero,
+            R.drawable.situpatenggang,
             "Bandung",
             "Rp 25.000",
             "Danau yang dikelilingi hamparan kebun teh hijau yang menyejukkan."

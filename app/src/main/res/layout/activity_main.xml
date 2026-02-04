@@ -21,7 +21,7 @@
             android:id="@+id/ivProfile"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/profile"
+            android:src="@drawable/ic_taufan_background"
             app:shapeAppearanceOverlay="@style/CircleImage"
             android:scaleType="centerCrop"/>
 

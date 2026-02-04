@@ -16,8 +16,8 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
         // Contoh data dummy yang difavoritkan
         val dataFav = listOf(
-            Wisata("Curug Putri", "Kuningan", R.drawable.profile, "Kuningan", "Rp 20.000", "Deskripsi..."),
-            Wisata("Riung Gunung", "Bandung", R.drawable.hero, "Bandung", "Rp 15.000", "Deskripsi...")
+            Wisata("Curug Putri", "Kuningan", R.drawable.curugputri, "Kuningan", "Rp 20.000", "Deskripsi..."),
+            Wisata("kawah putih", "Bandung", R.drawable.kawahputih, "Bandung", "Rp 15.000", "Deskripsi...")
         )
 
         binding.rvFavorite.apply {

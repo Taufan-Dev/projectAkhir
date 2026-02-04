@@ -20,7 +20,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Gunung Papandayan",
             "Garut",
-            R.drawable.hero,
+            R.drawable.papandayan,
             "Garut",
             "Rp 35.000",
             "Gunung api yang menawarkan pemandangan kawah dan padang edelweiss yang sangat indah."
@@ -28,7 +28,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Kawah Putih",
             "Bandung",
-            R.drawable.hero,
+            R.drawable.kawahputih,
             "Bandung",
             "Rp 28.000",
             "Danau kawah yang airnya berwarna putih kehijauan dengan suasana kabut yang estetik."
@@ -36,7 +36,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Curug Putri",
             "Kuningan",
-            R.drawable.profile,
+            R.drawable.curugputri,
             "Kuningan",
             "Rp 20.000",
             "Terletak di kaki Gunung Ciremai, Curug Putri menawarkan pesona air terjun yang memukau dan udara segar."
@@ -44,7 +44,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Situ Patenggang",
             "Bandung",
-            R.drawable.hero,
+            R.drawable.situpatenggang,
             "Bandung",
             "Rp 25.000",
             "Danau yang dikelilingi hamparan kebun teh hijau yang sangat menyejukkan mata."
@@ -52,7 +52,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Kebun Raya",
             "Bogor",
-            R.drawable.hero,
+            R.drawable.kebunraya,
             "Bogor",
             "Rp 15.000",
             "Hutan kota terbesar yang menjadi paru-paru kota Bogor dengan ribuan koleksi pohon."
@@ -60,7 +60,7 @@ class ExploreFragment : Fragment() {
         Wisata(
             "Cirebon Waterland",
             "Cirebon",
-            R.drawable.hero,
+            R.drawable.cirebonwaterland,
             "Cirebon",
             "Rp 50.000",
             "Wisata air modern di pinggir pantai yang cocok untuk liburan keluarga."

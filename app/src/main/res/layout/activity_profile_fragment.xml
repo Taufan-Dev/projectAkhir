@@ -38,7 +38,7 @@
                 android:layout_height="140dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/profile"
+                android:src="@drawable/ic_taufan_background"
                 app:shapeAppearanceOverlay="@style/CircleImage"
                 app:strokeColor="#1BBA85"
                 app:strokeWidth="1dp" />
